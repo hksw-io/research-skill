@@ -25,7 +25,7 @@ Parse `$ARGUMENTS`:
 ## Flow
 
 ```
-CONTEXT_GATHERING -> SCOPE_FRAMING -> PLAN_TO_MEMORY -> INVESTIGATOR_SELECTION -> PARALLEL_INVESTIGATION -> [EVALUATE: more needed?] -> CROSS_POLLINATION -> [EVALUATE: more needed?] -> VERIFICATION -> CONSOLIDATION -> REPORT -> CLEANUP
+CONTEXT_GATHERING -> SCOPE_FRAMING -> PLAN_TO_MEMORY -> INVESTIGATOR_SELECTION -> PARALLEL_INVESTIGATION -> [EVALUATE: more needed?] -> CROSS_POLLINATION -> [EVALUATE: more needed?] -> VERIFICATION -> CONSOLIDATION -> REPORT -> MEMORY_SUGGESTION -> CLEANUP
 ```
 
 The research loop is adaptive — after each round, the lead agent evaluates whether more investigation is needed rather than committing to a fixed number of rounds upfront.
@@ -313,7 +313,23 @@ The lead agent asks the Integrator to produce a draft consolidation:
 
 The lead agent refines the Integrator's draft into the final report.
 
-### Step 7: Cleanup
+### Step 7: Save key findings to memory
+
+After delivering the final report, save the most important findings to memory so the same research doesn't need to be repeated. This step is automatic — do not ask the user for approval.
+
+**What to save:**
+- Non-obvious findings that would be expensive to re-derive (e.g., platform constraints, irreversible decisions, verified gotchas)
+- Findings likely to inform future work in this project
+- Actionable constraints or recommendations that affect ongoing decisions
+
+**What NOT to save:**
+- Ephemeral or one-off facts (e.g., "current test coverage is 73%")
+- Anything easily re-derived by reading code or running a command
+- Anything already documented in CLAUDE.md or project docs
+
+**How to save:** Write a single memory file covering the research topic's key conclusions. Use the `project` type for technical constraints and decisions, or `reference` for external resource pointers. Keep it concise — capture the conclusions and rationale, not the full investigation. Update MEMORY.md index accordingly.
+
+### Step 8: Cleanup
 
 Send shutdown messages to all agents via SendMessage, then TeamDelete.
 
