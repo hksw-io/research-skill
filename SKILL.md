@@ -210,7 +210,7 @@ Spawn one Agent per investigator role:
 > 4. **Report unknowns explicitly.** For each aspect of your facet, classify as: KNOWN (verified), PARTIALLY KNOWN (some evidence, gaps remain), or UNKNOWN (no evidence found, needs investigation). An investigation that reports "everything is fine" without evidence is a failed investigation.
 > 5. **Ask if unsure.** If you lack context for a thorough investigation, you MUST add a `# Questions for User` section using the structured format (see Agent Questions section). State what you need and what you will assume if not answered. If you have no questions, end with `# Questions for User` followed by `NONE`. **Do NOT call AskUserQuestion yourself — only the lead agent does. Calling it from a teammate will deadlock.**
 >
-> Source quality: Prefer authoritative sources (official docs, RFCs, primary sources, academic papers) over SEO-optimized content. Flag when you can only find low-quality sources for a finding.
+> Source quality: Prefer authoritative sources (official docs, RFCs, primary sources, academic papers) over SEO-optimized content. Flag when you can only find low-quality sources for a finding. For software engineering topics, prefer current APIs and modern approaches over deprecated or legacy ones — search results often surface outdated patterns that are no longer recommended.
 >
 > Be direct and analytical. No conversational filler.
 > Label your output with your role name.

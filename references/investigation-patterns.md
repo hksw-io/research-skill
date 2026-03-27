@@ -104,6 +104,8 @@ Flag when findings rely primarily on sources from category 5-6. Note when author
 
 Avoid SEO-optimized content farms — they often contain outdated or superficial information that can mislead investigations.
 
+For software engineering topics, prefer current APIs and modern approaches. Search results frequently surface deprecated patterns, legacy APIs, and outdated frameworks. When multiple approaches exist, default to the current recommended one unless there is a specific reason to use an older approach (e.g., backward compatibility constraint). Flag deprecated APIs as a finding if the codebase uses them.
+
 ## Anti-Patterns
 
 **Premature certainty**: Reporting "no issues found" without demonstrating thorough investigation. The absence of evidence is not evidence of absence.
