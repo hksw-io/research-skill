@@ -96,8 +96,8 @@ Codex assignment: Backend API Engineer (most code-grounded facet, highest value 
 
 ## Codex Assignment Guidelines
 
-Assign Codex to the role that benefits most from independent reasoning. Prioritize:
-1. The facet with the most uncertainty — cross-model disagreement reveals genuine uncertainty
+Codex investigators scale with team size: 1 for teams of 3, 2 for teams of 4-5, up to 3 for teams of 6-7 (never more than half). Assign Codex to roles that benefit most from independent reasoning. Prioritize:
+1. Facets with the most uncertainty — cross-model disagreement reveals genuine uncertainty
 2. Facets requiring code analysis — different models may find different patterns
 3. Factual questions where model-specific knowledge differences matter
 

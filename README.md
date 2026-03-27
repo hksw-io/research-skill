@@ -33,7 +33,7 @@ Inspired by [Anthropic's multi-agent research system](https://www.anthropic.com/
 ## Design
 
 - **Orchestrator-worker pattern** — lead agent coordinates independent investigators
-- **Codex is a first-class member** — investigates the highest-uncertainty facet
+- **Codex scales with team** — 1-3 Codex-powered investigators depending on team size, never more than half
 - **Facet-based decomposition** — each investigator has clear boundaries (what's in/out of scope)
 - **Adaptive rounds** — lead agent decides if more investigation is needed, not fixed round count
 - **Evidence tagging** — findings tagged [grounded], [informed], or [speculative]

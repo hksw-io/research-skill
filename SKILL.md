@@ -3,9 +3,9 @@ name: research
 description: >
   Multi-agent research and investigation using an orchestrator-worker pattern.
   Spawns a team of independent investigators — each exploring a specific facet —
-  to research a topic in parallel. One investigator is always powered by Codex CLI
-  for cross-model validation. Produces findings with risk matrix, unknowns map,
-  and actionable recommendations.
+  to research a topic in parallel. Multiple investigators are powered by Codex CLI
+  for cross-model validation, scaling with team size. Produces findings with risk
+  matrix, unknowns map, and actionable recommendations.
 license: MIT
 metadata:
   version: "1.0"
@@ -114,7 +114,15 @@ Each investigator gets clear delegation boundaries:
 
 ### Codex assignment
 
-One investigator is always powered by Codex CLI. Assign it to the facet with the most uncertainty — cross-model disagreement on uncertain territory is the highest-value signal.
+Codex-powered investigators scale with team size. Research benefits more from model diversity than debate — different models genuinely find different facts and access different knowledge.
+
+| Team size | Codex investigators | Assignment strategy |
+|-----------|-------------------|-------------------|
+| 3 | 1 | Highest-uncertainty facet |
+| 4-5 | 2 | Two highest-uncertainty facets |
+| 6-7 | 2-3 | Up to 3, never more than half the team |
+
+Assign Codex to facets where cross-model disagreement is most valuable: high uncertainty, factual questions, or code analysis where different models may find different patterns. Do not assign Codex to the Integrator or Scope Sentinel — they need full context awareness that the stateless relay pattern cannot provide.
 
 No fictional names. No fictional backgrounds. Label by role only.
 
@@ -144,7 +152,7 @@ NONE
 
 ## Codex Consultation
 
-During Round 2+, any Claude investigator can request an ad-hoc Codex consultation to cross-check a specific finding. This is separate from the mandatory Codex investigator.
+During Round 2+, any Claude investigator can request an ad-hoc Codex consultation to cross-check a specific finding. This is separate from the Codex-powered investigators on the team.
 
 - Max 2 ad-hoc consultations per investigation.
 - The requesting agent must state what finding it wants to verify and why.
@@ -329,7 +337,7 @@ Plain text with markdown headers where helpful. No box-drawing characters, no em
 **Core sections (always present):**
 
 ### Summary
-1-3 sentences answering the research question at the executive level. Note which investigators participated and which was Codex-powered.
+1-3 sentences answering the research question at the executive level. Note which investigators participated and which were Codex-powered.
 
 ### Key Findings
 Numbered findings, each with:
@@ -361,7 +369,7 @@ Concrete next steps grouped by:
 Which findings interact. "If X is true, then Y is affected because Z." Include only when the investigation revealed non-obvious dependencies between facets.
 
 ### Cross-Model Divergence
-Include if the Codex-powered investigator's findings diverged meaningfully from Claude investigators on the same or related facets. What does cross-model disagreement reveal about certainty? Omit if they agreed.
+Include if Codex-powered investigators' findings diverged meaningfully from Claude investigators on the same or related facets. What does cross-model disagreement reveal about certainty? Omit if they agreed.
 
 ### Surprise Finding
 Include if the investigation surfaced something genuinely non-obvious. Omit if nothing surprising — do not manufacture one.
